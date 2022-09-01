@@ -28,13 +28,15 @@ def register():
         "gender" : request.form["gender"],
         "language" : request.form["language"]
     }
+    print(data['email'])
+    session['user_id'] = User.get_by_email(data)
     # Post validation (will cause redirect if False)
     if not User.validate_user(data):
         return redirect('/')
     if not User.validate_password(passwords):
         return redirect('/')
     User.save(data)
-    return redirect('/')
+    return redirect('/profile')
 
 
 @app.route('/login', methods=['POST'])
@@ -52,8 +54,16 @@ def login():
     session['user_id'] = user_in_db.id
     return redirect("/profile")
 
+@app.route('/clear')
+def clear():
+    session.clear()
+    print(session)
+    return render_template("logreg.html")
+
 
 @app.route('/profile')
 def profile():
+    if session == {}:
+        return redirect('/')
     return render_template("profile.html")
 

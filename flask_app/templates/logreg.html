@@ -65,31 +65,58 @@
             <!-- Password -->
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="text" class="form-control" name="password">
+              <input type="password" class="form-control" name="password">
             </div>
 
             <!-- Confirm Password -->
             <div class="mb-3">
               <label for="confirm_password" class="form-label">Confirm Password</label>
-              <input type="text" class="form-control" name="confirm_password">
+              <input type="password" class="form-control" name="confirm_password">
             </div>
 
             <!-- Birthday -->
             <div class="mb-3">
               <label for="birthday" class="form-label">Birthday</label>
-              <input type="text" class="form-control" name="birthday">
+              <input type="date" class="form-control" name="birthday">
             </div>
 
             <!-- Language -->
             <div class="mb-3">
               <label for="language" class="form-label">Language</label>
-              <input type="text" class="form-control" name="language">
+              <select class="form-select" name="language" aria-label="Default select example">
+                <option selected>English</option>
+                <option value="1">Mandarin</option>
+                <option value="2">French</option>
+                <option value="3">Spanish</option>
+                <option value="3">Italian</option>
+                <option value="3">Vulcan</option>
+                <option value="3">German</option>
+              </select>
             </div>
 
             <!-- Gender -->
             <div class="mb-3">
-              <label for="gender" class="form-label">Gender</label>
-              <input type="text" class="form-control" name="gender">
+              <label for="gender option" class="form-label">Gender</label>
+              <div class="d-flex">
+                <div class="form-check" name="gender_option">
+                  <input class="form-check-input" type="radio" name="gender" value="male">
+                  <label class="form-check-label" for="gender">
+                    Male
+                  </label>
+                </div>
+                <div class="ms-4 form-check">
+                  <input class="form-check-input" type="radio" name="gender" value="female">
+                  <label class="form-check-label" for="gender">
+                    Female
+                  </label>
+                </div>
+                <div class="ms-4 form-check">
+                  <input class="form-check-input" type="radio" name="gender" value="other">
+                  <label class="form-check-label" for="gender">
+                    Other
+                  </label>
+                </div>
+              </div>
             </div>
     
             <!-- Form Submission  -->
@@ -122,7 +149,7 @@
             <!-- Password -->
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="text" class="form-control" name="password">
+                <input type="password" class="form-control" name="password">
             </div>
     
             <!-- Form Submission  -->

@@ -46,12 +46,18 @@ class User:
     @staticmethod
     def validate_user(data):
         is_valid = True # we assume this is true
-        if len(data['first_name']) < 1:
+        if len(data['first_name']) < 2:
             flash("First name is required.")
             is_valid = False
-        if len(data['last_name']) < 1:
+        if len(data['last_name']) < 2:
             flash("Last name is required.")
             is_valid = False
+        # Check database to see if email already exists.
+        users = User.get_all()
+        for user in users:
+            if user.email == data['email']:
+                flash("Email already exists.")
+                is_valid = False
         if len(data['email']) < 1:
             flash("Email is required.")
             is_valid = False
@@ -72,5 +78,8 @@ class User:
         is_valid = True # we assume this is true
         if passwords['password'] != passwords['confirm_password']:
             flash("Passwords must be the same.")
+            is_valid = False
+        if len(passwords['password']) < 8:
+            flash("Passwords must be longer than 8 characters.")
             is_valid = False
         return is_valid
